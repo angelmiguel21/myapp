@@ -1,20 +1,27 @@
 doctype html
 html
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    title= title
-    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='stylesheets/style.css')
-  body
-    div(class='flex-center position-ref full-height')
-      div(class='top-right links')
-        a(href='#') Inicio
-        a(href='#') Registrar
-        a(href='#') login
-      div(class='content')
-        div(class='title m-b-md')
-          p Testing#[strong Express]
-    block content
+  include includes/head.pug
+  body(class='fix-header fix-sidebar')
+    div.preloader
+      svg(class='circular', viewbox='25 25 50 50')
+        circle(class='path', cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10")
+    div(class='main-wrapper')
+      include includes/header.pug
+      include includes/sidebar.pug
+      div(class='page-wrapper')
+        div(class='row page-titles')
+          div(class='col-md-5 align-self-center')
+            h3(class='text-warning') Inicio
+          div(class='col-md-7 align-self-center')
+            ol(class='breadcrumb')
+              li(class='breadcrumb-item')
+              a(href='#') Inicio
+              li(class='breadcrumb-item active') Resumen
+        footer(class='footer text-right')
+          a(href='') DCNP
+          .
+            ©2018 Derechos Reservados.
+
+
+  include includes/script.pug
 
