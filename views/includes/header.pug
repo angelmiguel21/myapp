@@ -1,0 +1,36 @@
+div.header
+  nav(class='navbar top-navbar navbar-expand-md navbar-light')
+    div.navbar-header
+      a(class='navbar-brand', href='/')
+        b
+          img(src='/images/logo.png', alt='bitaweb', class='dark-logo')
+        span 
+          img(src='/images/logo-text.png', alt='homepage', class='dark-logo')
+    div.navbar-collapse
+      ul(class='navbar-nav mr-auto mt-md-0')
+        li(class='nav-item')
+          a(class='nav-link nav-toggler hidden-md-up text-muted', href='#')
+            i(class='mdi mdi-menu')
+        li(class='nav-item m-l-10')
+          a(class='nav-link sidebartoggler hidden-sm-down text-muted', href='#')
+            i(class='ti-menu')
+      ul(class='navbar-nav my-lg-0')
+        li(class='nav-item hidden-sm-down search-box')
+          a(class='nav-link hidden-sm-down text-muted', href='')
+            i(class='ti-search')
+          form(class='app-search')
+            input(type='text', class='form-control', placeholder='Ingrese ticket')
+            a(class='srh-btn')
+              i(class='ti-close')
+        li(class='nav-item dropdown')
+          a(class='nav-link dropdown-toggle text-muted', href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+            img(src='/images/1.jpg', alt='user', class='profile-pic')
+          div(class='dropdown-menu dropdown-menu-right animated zoomIn')
+            ul.dropdown-user
+              li: a(href='#') #[i.ti-user] Profile
+              li: a(href='#') #[i.ti-wallet] Balance
+              li: a(href='#') #[i.ti-email] Inbox
+              li: a(href='#') #[i.ti-settings] Settings
+              li
+                a(href='#', 'onclick'='event.preventDefault(); document.getElementById("logout-form").submit();') <i class='fa fa-power-off'></i> Logout
+                form(id='logout-form', action='#', methor='POST', style='display:none;')
