@@ -3,7 +3,7 @@ extends layout
 block content
   .container-fluid
     div.row
-      div.col-lg-5
+      div.col-lg-4
         div.card
           div.card-title
             h4 Form
@@ -16,7 +16,7 @@ block content
                 label(class='control-label') Description
                 textarea(type='text', class='form-control', name='description', placeholder='description' required)
               button(class='btn btn-primary btn-block' type='submit') Register
-      div.col-lg-7
+      div.col-lg-8
         div.card
           div.card-title
             h4 Tasks
@@ -28,10 +28,13 @@ block content
                   th Name
                   th Product
                   th Quantity
-                  th Status
                 tbody
                   each val, index in tasks
                     tr
                       td= index + 1
                       td= val.title
                       td= val.description
+                      td
+                        a(href='/turn/'+val._id class='btn btn-dark') Done
+                        a(href='/delete/'+val._id class='btn btn-danger') Delete
+                        a(href='/edit/'+val._id class='btn btn-info') Edit

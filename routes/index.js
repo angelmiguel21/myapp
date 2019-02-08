@@ -25,10 +25,36 @@ router.get('/task', async function(req,res,next) {
 	res.render('task', {title:'task', tasks: tasks});
 });
 
+// rutas del crud
+// 
+// create
 router.post('/add', async function(req,res,next){
 	var task = new Task(req.body);
 	await task.save();
 	res.redirect('/task');
+});
+
+// update
+router.get('/turn/:id', async function(req,res,next){
+	var { id } = req.params;
+	var task = await Task.findById(id);
+	task.status = !task.status;
+	await task.save();
+	res.send('ok');
+});
+
+// edit
+router.get('/edit/:id', async function (req,res,next){
+	var { id } =  req.params;
+	var task = await Task.findById(id);
+
+});
+
+// delete
+router.get('/delete/:id', async function(req,res,next){
+	var { id } = req.params;
+	await Task.remove({_id: id});
+	res.redirect('/task')
 });
 
 
